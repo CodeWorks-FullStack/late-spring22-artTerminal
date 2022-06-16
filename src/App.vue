@@ -2,29 +2,35 @@
   <header>
     <Navbar />
   </header>
-  <main>
+  <main class="text-light">
     <router-view />
   </main>
-  <footer>
-    <div class="bg-dark text-light text-center p-4">
-      Made with 💖 by CodeWorks
-    </div>
-  </footer>
+  <Modal id="project-modal">
+    <template #header> Project details </template>
+    <template #body>
+      <ActiveProject />
+    </template>
+  </Modal>
 </template>
 
 <script>
-import { computed } from 'vue'
-import { AppState } from './AppState'
+import { computed } from "vue";
+import { AppState } from "./AppState";
 export default {
-  name: 'App',
+  name: "App",
   setup() {
     return {
-      appState: computed(() => AppState)
-    }
-  }
-}
+      appState: computed(() => AppState),
+    };
+  },
+};
 </script>
 <style lang="scss">
 @import "./assets/scss/main.scss";
-
+.modal-backdrop.fade {
+  // backdrop-filter: blur(20px);
+}
+.bg-transparent {
+  backdrop-filter: blur(20px);
+}
 </style>
